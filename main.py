@@ -23,7 +23,7 @@ def hangman(sections: list, sections_count) -> None:
         letters: str = input("Write a letter\n").lower()
 
         for letter in letters:
-            if letter in template_list:
+            if letter in template_list and len(letters) == 1:
                 attempts -= 1
                 continue
 
