@@ -1,4 +1,4 @@
-level_words = [
+level_words: list[list[dict[str, str]]] = [
     [
         {"word": "gato", "hint": "Un animal doméstico que maúlla"},
         {"word": "sol", "hint": "La estrella que nos da luz y calor"},
