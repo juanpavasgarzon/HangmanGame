@@ -1,6 +1,7 @@
 from level import define_level
 from random import choice
 from helpers import get_template, get_indexes
+from draws import get_draw
 
 
 def hangman(sections: list, sections_count) -> None:
@@ -35,6 +36,12 @@ def hangman(sections: list, sections_count) -> None:
                 attempts -= 1
                 continue
 
+            if attempts == 0:
+                break
+
+        draw = get_draw(attempts)
+        print(draw)
+
         if template_list == word_list:
             print(f"\nCongratulations! the word is '{word}'\n")
             sections.remove(section)
@@ -47,7 +54,6 @@ def hangman(sections: list, sections_count) -> None:
 def run_game():
     sections: list = define_level()
     hangman(sections, len(sections))
-    print(f"You win!!")
     again: str = input("\nDo you want to play again?, press Y to continue or any other key to quit\n").upper()
     if again == "Y":
         run_game()
